@@ -1,0 +1,51 @@
+{% extends 'base/html.njk' %}
+{% block body %}
+    <div class="header">
+        <h1 class="header_title">Cyril FIGUIN</h1>
+        <div class="header_description">
+            <p>{{header.description}}</p>
+        </div>
+    </div>
+    <article class="about">
+        <h2 class="about_title">{{about.title}}</h2>
+
+        {%- for p in about.description %}
+            <p class="about_description">{{ p }}</p>
+        {%- endfor -%}
+    </article>
+    <article class="skills">
+        <h2 class="skills_title">{{skills.title}}</h2>
+        <p class="skills_description">{{skills.description}}</p>
+        <ul class="skills_list">
+            {%- for skill in skills.list -%}
+                <li class="skills_list_element">
+                <span class="skills_list_element_span">{{ skill }}</span></li>
+            {%- endfor %}
+        </ul>
+    </article>
+    <article class="projects">
+        <h2 class="projects_title">{{projects.title}}</h2>
+        {%- for project in collections.project | reverse%}
+            <article class="project-card">
+                <h3 class="title">
+                {% if project.data.link %}
+                <a href="{{ project.data.link }}" class="link">
+                {% endif %}
+                {{ project.data.title }} ({{ project.data.date.getFullYear() }})
+                {% if project.data.link %}
+                </a>
+                {% endif %}
+                </h3>
+                <p class="description">
+                    {{ project.data.description }}
+                </p>
+                <ul class="tag-list">
+                    {%- for tag in project.data.tags | subtags('project') -%}
+                    <li class="tag">
+                        <span class="span">{{ tag }}</span></li>
+                    {%- endfor %}
+                </ul>
+                </article>
+        {%- endfor %}
+    </article>
+{% endblock %}

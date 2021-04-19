@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@csstools/normalize.css": "^11.0.1",
+    "serve": "^11.3.2",
+    "stylus": "^0.54.8"
+  },
+  "name": "cfiguin",
+  "version": "2",
+  "description": "My personal website",
+  "main": "index.js",
+  "author": "Cyril Figuin <contact@cfiguin.fr>",
+  "license": "MIT"
+}
